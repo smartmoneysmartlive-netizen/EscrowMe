@@ -2,47 +2,80 @@ import React from "react";
 
 export default function App() {
   return (
-    <div style={{ background: "#0A0A0A", color: "white", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ 
+      backgroundColor: "#0A0A0A", 
+      color: "white", 
+      fontFamily: "'Segoe UI', Arial, sans-serif",
+      minHeight: "100vh",
+      position: "relative"
+    }}>
       
-      {/* NAVBAR */}
-      <nav style={{ display: "flex", justifyContent: "space-between", padding: "20px 60px", alignItems: "center", flexWrap: "wrap" }}>
-        <h2 style={{ color: "#22C55E", margin: 0 }}>Escrow<span style={{ color: "white" }}>Me</span></h2>
-        <div style={{ display: "flex", gap: "24px", fontSize: "14px" }}>
-          <span>About</span><span>Payments</span><span>Contact</span>
-        </div>
-        <button style={{ background: "#22C55E", border: "none", padding: "10px 20px", borderRadius: "20px", color: "black", fontWeight: "bold", cursor: "pointer" }}>
-          Fee Calculator
-        </button>
-      </nav>
+      {/* AFRICA MAP BACKGROUND - FADED */}
+      <div style={{
+        position: "absolute",
+        top: "0",
+        left: "0",
+        width: "100%",
+        height: "100%",
+        backgroundImage: "url(https://upload.wikimedia.org/wikipedia/commons/7/7c/Africa_%28orthographic_projection%29.svg)",
+        backgroundSize: "600px",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right -100px center",
+        opacity: "0.06",
+        zIndex: "0"
+      }}></div>
 
-      {/* HERO SECTION */}
-      <section style={{ padding: "80px 60px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "40px" }}>
-        <div style={{ maxWidth: "500px" }}>
-          <h1 style={{ fontSize: "48px", lineHeight: "1.2", margin: 0 }}>Trade. Pay. Transact.<br/>Across Africa</h1>
-          <p style={{ opacity: 0.7, margin: "20px 0" }}>Secure payment and Escrow across Africa. Trade peer to peer safely across 54 countries.</p>
-          <button style={{ background: "#22C55E", border: "none", padding: "14px 28px", borderRadius: "8px", color: "black", fontWeight: "bold", fontSize: "16px", cursor: "pointer" }}>
-            Create Account
-          </button>
-          <div style={{ marginTop: "20px", padding: "10px 20px", border: "1px solid #444", borderRadius: "20px", display: "inline-block", marginLeft: "12px" }}>
-            12,400+ Deals Secured
+      {/* CONTENT */}
+      <div style={{ position: "relative", zIndex: "1" }}>
+
+        {/* NAVBAR */}
+        <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "24px 80px", maxWidth: "1200px", margin: "0 auto" }}>
+          <h2 style={{ color: "#22C55E", fontSize: "24px", margin: 0, fontWeight: "800" }}>Escrow<span style={{ color: "white" }}>Me</span></h2>
+          <div style={{ display: "flex", gap: "32px", fontSize: "15px", fontWeight: "500" }}>
+            <span style={{ cursor: "pointer" }}>About</span>
+            <span style={{ cursor: "pointer" }}>Payments</span>
+            <span style={{ cursor: "pointer" }}>Contact</span>
           </div>
-        </div>
-        <img 
-          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop" 
-          alt="African person using phone" 
-          style={{ width: "400px", maxWidth: "100%", borderRadius: "20px" }}
-        />
-      </section>
+          <button style={{ background: "#22C55E", border: "none", padding: "12px 24px", borderRadius: "8px", color: "#0A0A0A", fontWeight: "700", fontSize: "15px", cursor: "pointer" }}>
+            Fee Calculator
+          </button>
+        </nav>
 
-      {/* HOW IT WORKS */}
-      <section style={{ padding: "40px 60px" }}>
-        <div style={{ background: "#1A1A1A", padding: "30px", borderRadius: "12px" }}>
-          <h3 style={{ marginTop: 0 }}>How Escrow Works</h3>
-          <p>✓ ₦2.48B+ Secured safely to date. Instantly transact across the 54 African nations.</p>
-          <p>✓ ₦2.38B in Escrow. We hold funds safely until both buyer and seller are satisfied.</p>
-        </div>
-      </section>
+        {/* HERO */}
+        <section style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "100px 80px", maxWidth: "1200px", margin: "0 auto", gap: "60px", flexWrap: "wrap" }}>
+          <div style={{ flex: "1", minWidth: "400px" }}>
+            <h1 style={{ fontSize: "56px", lineHeight: "1.1", margin: "0 0 20px 0", fontWeight: "800" }}>Trade. Pay. Transact.<br/>Across Africa</h1>
+            <p style={{ fontSize: "18px", opacity: "0.8", margin: "0 0 32px 0", lineHeight: "1.6" }}>Secure payment and Escrow across Africa. Trade peer to peer safely across 54 countries.</p>
+            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+              <button style={{ background: "#22C55E", border: "none", padding: "16px 32px", borderRadius: "10px", color: "#0A0A0A", fontWeight: "700", fontSize: "16px", cursor: "pointer" }}>
+                Create Account
+              </button>
+              <div style={{ padding: "16px 24px", border: "1px solid #333", borderRadius: "10px", fontSize: "15px", fontWeight: "600" }}>
+                12,400+ Deals Secured
+              </div>
+            </div>
+          </div>
+          
+          {/* AFRICAN MAN + WOMAN ON PHONES */}
+          <div style={{ flex: "1", minWidth: "400px" }}>
+            <img 
+              src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=2069&auto=format&fit=crop" 
+              alt="African man and woman doing business on phones" 
+              style={{ width: "100%", borderRadius: "16px", objectFit: "cover", height: "500px", border: "2px solid #22C55E" }}
+            />
+          </div>
+        </section>
 
+        {/* STATS */}
+        <section style={{ padding: "0 80px 100px 80px", maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ background: "#121212", padding: "40px", borderRadius: "16px", border: "1px solid #22C55E" }}>
+            <h3 style={{ margin: "0 0 20px 0", color: "#22C55E", fontSize: "22px" }}>Trusted Across Africa</h3>
+            <p style={{ margin: "10px 0", fontSize: "16px" }}>✓ ₦2.48B+ Secured safely to date</p>
+            <p style={{ margin: "10px 0", fontSize: "16px" }}>✓ ₦2.38B currently in Escrow</p>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }
