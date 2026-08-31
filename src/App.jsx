@@ -2,80 +2,77 @@ import React from "react";
 
 export default function App() {
   return (
-    <div style={{ 
-      backgroundColor: "#0A0A0A", 
-      color: "white", 
-      fontFamily: "'Segoe UI', Arial, sans-serif",
-      minHeight: "100vh",
-      position: "relative"
-    }}>
-      
-      {/* AFRICA MAP BACKGROUND - FADED */}
-      <div style={{
-        position: "absolute",
-        top: "0",
-        left: "0",
-        width: "100%",
-        height: "100%",
-        backgroundImage: "url(https://upload.wikimedia.org/wikipedia/commons/7/7c/Africa_%28orthographic_projection%29.svg)",
-        backgroundSize: "600px",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "right -100px center",
-        opacity: "0.06",
-        zIndex: "0"
-      }}></div>
-
-      {/* CONTENT */}
-      <div style={{ position: "relative", zIndex: "1" }}>
-
-        {/* NAVBAR */}
-        <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "24px 80px", maxWidth: "1200px", margin: "0 auto" }}>
-          <h2 style={{ color: "#22C55E", fontSize: "24px", margin: 0, fontWeight: "800" }}>Escrow<span style={{ color: "white" }}>Me</span></h2>
-          <div style={{ display: "flex", gap: "32px", fontSize: "15px", fontWeight: "500" }}>
-            <span style={{ cursor: "pointer" }}>About</span>
-            <span style={{ cursor: "pointer" }}>Payments</span>
-            <span style={{ cursor: "pointer" }}>Contact</span>
-          </div>
-          <button style={{ background: "#22C55E", border: "none", padding: "12px 24px", borderRadius: "8px", color: "#0A0A0A", fontWeight: "700", fontSize: "15px", cursor: "pointer" }}>
-            Fee Calculator
-          </button>
-        </nav>
-
-        {/* HERO */}
-        <section style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "100px 80px", maxWidth: "1200px", margin: "0 auto", gap: "60px", flexWrap: "wrap" }}>
-          <div style={{ flex: "1", minWidth: "400px" }}>
-            <h1 style={{ fontSize: "56px", lineHeight: "1.1", margin: "0 0 20px 0", fontWeight: "800" }}>Trade. Pay. Transact.<br/>Across Africa</h1>
-            <p style={{ fontSize: "18px", opacity: "0.8", margin: "0 0 32px 0", lineHeight: "1.6" }}>Secure payment and Escrow across Africa. Trade peer to peer safely across 54 countries.</p>
-            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <button style={{ background: "#22C55E", border: "none", padding: "16px 32px", borderRadius: "10px", color: "#0A0A0A", fontWeight: "700", fontSize: "16px", cursor: "pointer" }}>
+    <div className="min-h-screen bg-[#0A0F1E] text-white">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        {/* Africa Map Background */}
+        <div className="absolute inset-0 opacity-10">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/8/86/Africa_%28orthographic_projection%29.svg" 
+            alt="Africa" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+          {/* LEFT TEXT */}
+          <div>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              Trade. Pay. <span className="text-[#00D084]">Transact.</span> Across Africa
+            </h1>
+            <p className="mt-6 text-lg text-gray-300">
+              Secure escrow service for 54 countries. Pay with confidence. 
+              Get paid with guarantee.
+            </p>
+            <div className="mt-8 flex gap-4">
+              <button className="bg-[#00D084] hover:bg-[#00B870] text-[#0A0F1E] font-bold px-8 py-4 rounded-lg">
                 Create Account
               </button>
-              <div style={{ padding: "16px 24px", border: "1px solid #333", borderRadius: "10px", fontSize: "15px", fontWeight: "600" }}>
-                12,400+ Deals Secured
-              </div>
+              <button className="border border-gray-600 hover:border-[#00D084] px-8 py-4 rounded-lg">
+                How It Works
+              </button>
             </div>
           </div>
-          
-          {/* AFRICAN MAN + WOMAN ON PHONES */}
-          <div style={{ flex: "1", minWidth: "400px" }}>
+
+          {/* RIGHT IMAGE */}
+          <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=2069&auto=format&fit=crop" 
-              alt="African man and woman doing business on phones" 
-              style={{ width: "100%", borderRadius: "16px", objectFit: "cover", height: "500px", border: "2px solid #22C55E" }}
+              src="/escrow-details.jpg" 
+              alt="Vendor and Buyer using EscrowMe"
+              className="rounded-2xl shadow-2xl"
             />
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* STATS */}
-        <section style={{ padding: "0 80px 100px 80px", maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ background: "#121212", padding: "40px", borderRadius: "16px", border: "1px solid #22C55E" }}>
-            <h3 style={{ margin: "0 0 20px 0", color: "#22C55E", fontSize: "22px" }}>Trusted Across Africa</h3>
-            <p style={{ margin: "10px 0", fontSize: "16px" }}>✓ ₦2.48B+ Secured safely to date</p>
-            <p style={{ margin: "10px 0", fontSize: "16px" }}>✓ ₦2.38B currently in Escrow</p>
+      {/* HOW IT WORKS */}
+      <section className="py-20 bg-[#111827]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-12">How EscrowMe Works</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-6">
+              <div className="text-4xl mb-4">1️⃣</div>
+              <h3 className="font-bold text-xl">Buyer Pays</h3>
+              <p className="text-gray-400 mt-2">Money is held safely by EscrowMe</p>
+            </div>
+            <div className="p-6">
+              <div className="text-4xl mb-4">2️⃣</div>
+              <h3 className="font-bold text-xl">Vendor Ships</h3>
+              <p className="text-gray-400 mt-2">Goods sent with confidence</p>
+            </div>
+            <div className="p-6">
+              <div className="text-4xl mb-4">3️⃣</div>
+              <h3 className="font-bold text-xl">Release Funds</h3>
+              <p className="text-gray-400 mt-2">Money released when buyer confirms</p>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* FOOTER */}
+      <footer className="py-10 text-center text-gray-500 border-t border-gray-800">
+        © 2026 EscrowMe. Secure Transactions Across Africa.
+      </footer>
     </div>
   );
 }
