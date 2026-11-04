@@ -1,24 +1,24 @@
-<section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-16 bg-white">
-  {/* Left Text */}
-  <div className="flex-1 text-center md:text-left">
-    <h1 className="text-4xl md:text-6xl font-bold text-black leading-tight">
-      Trade. Pay. <br /> Transact. <br /> Across Africa
-    </h1>
-    <p className="mt-4 text-lg text-gray-600">
-      The safest and easiest way to buy and sell goods online
-    </p>
-    <button className="mt-6 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700">
-      Create an Account
-    </button>
-    <p className="mt-4 text-sm text-gray-500">12,40+ Deals | Secured by Paystack</p>
-  </div>
+import { useEffect, useState } from 'react';
+import { authService } from './lib/auth';
+import { escrowService } from './lib/escrow';
 
-  {/* Right Image */}
-  <div className="flex-1 mt-10 md:mt-0">
-    <img 
-      src="./IMG-20260831-WA2331.jpg"
-      alt="Trade. Pay. Transact. Across Africa" 
-      className="w-full rounded-2xl shadow-lg" 
-    />
-  </div>
-</section>
+export default function App(){
+  const [user,setUser]=useState(null);
+  useEffect(()=>{ authService.getUser().then(setUser); },[]);
+  const createTest=async()=>{
+    if(!user){ alert('Login first at cloud.appwrite.io'); return; }
+    await escrowService.create({ buyerId:user.$id, sellerId:'seller_demo', amount:5000, productName:'Test Laptop' });
+    alert('Escrow created! Check Appwrite DB');
+  };
+  return (
+    <div style={{maxWidth:600,margin:'40px auto',fontFamily:'system-ui',padding:20}}>
+      <h1 style={{fontSize:32}}>EscrowMe</h1>
+      <p>Best Escrow for African Businesses</p>
+      <hr/>
+      <p>{user?`Logged as ${user.email}`:'Not logged - setup Appwrite Auth'}</p>
+      <button onClick={createTest} style={{padding:'12px 20px',background:'black',color:'white',borderRadius:8,marginTop:10}}>Create Test Escrow (5,000 NGN)</button>
+      <p style={{marginTop:20,fontSize:13}}>Status flow: pending_payment → funded → in_delivery → delivered → released</p>
+      <p style={{fontSize:12,color:'#666'}}>Grok push failed because it had no repo write permission. You fixed it manually.</p>
+    </div>
+  );
+}
